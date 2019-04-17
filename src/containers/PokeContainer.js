@@ -14,7 +14,13 @@ class PokeContainer extends Component {
     componentWillMount() {
       fetch('https://pokeapi.co/api/v2/pokemon?offset=20&limit=50')
         .then(res => res.json())
-        .then(res => this.setState({pokemons: res.results}))
+        .then(res => {
+          const sortedResults = res.results.sort((a, b) => {
+            return (a.name > b.name) ? 1 : -1
+          })
+          this.setState({pokemons: sortedResults})
+        })
+        // .then(res => this.setState({pokemons: res.results}))
     }
 
     getPokemonDetails = (event) => {
@@ -26,7 +32,7 @@ class PokeContainer extends Component {
     render() {
       return (
         <div>
-          <h1>Pokemonn</h1>
+          <h1>Pokemon</h1>
           <PokeList
           pokemons={this.state.pokemons}
           getPokemonDetails={this.getPokemonDetails}

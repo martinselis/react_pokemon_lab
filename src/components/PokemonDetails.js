@@ -9,7 +9,10 @@ const PokemonDetails = (props) => {
   }
   return(
     <div className="image" >
-      <img src={props.pokemonSelected.sprites.front_shiny} style={style}></img>
+      <img
+      src={props.pokemonSelected.sprites.front_shiny}
+      alt={props.pokemonSelected.species.name}
+      style={style}></img>
     </div>
     )
 }

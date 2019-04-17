@@ -3,7 +3,6 @@ import PokemonDetails from "./PokemonDetails.js";
 
 const PokeList = (props) => {
   if (!props.pokemons) return null;
-  console.log(props.pokemons)
   return(
     <div>
       <div>
